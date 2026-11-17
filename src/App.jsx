@@ -6,6 +6,10 @@ import Skills from './page/Skills'
 import Education from './page/Education'
 import Login from './page/Login'
 import skills from './data/skills'
+import DashboardLayout from './components/DashboardLayout'
+import Overviews from './page/admin/Overviews'
+import ManageSkills from './page/admin/ManageSkills'
+
 
 function App() {
 
@@ -16,7 +20,7 @@ function App() {
           {/* Public webpage */}
           <Route path='/' element={<PageLayout />}>
             <Route path='/' element={<Home skills={skills}/>} />
-            <Route path='/skills' element={<Skills />} />
+            <Route path='/skills' element={<Skills skills={skills}/>} />
             <Route path='/education' element={<Education />} />
           </Route>
 
@@ -25,7 +29,10 @@ function App() {
 
 
           {/* Dashboard */}
-
+          <Route path='/dashboard' element={<DashboardLayout />} >
+            <Route path='/dashboard' element={<Overviews />} />
+            <Route path='/dashboard/skills' element={<ManageSkills />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
