@@ -9,6 +9,7 @@ import skills from './data/skills'
 import DashboardLayout from './components/DashboardLayout'
 import Overviews from './page/admin/Overviews'
 import ManageSkills from './page/admin/ManageSkills'
+import DetailSkill from './page/admin/DetailSkill'
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
           {/* Dashboard */}
           <Route path='/dashboard' element={<DashboardLayout />} >
             <Route path='/dashboard' element={<Overviews />} />
-            <Route path='/dashboard/skills' element={<ManageSkills />} />
+            <Route path='/dashboard/skills' element={<ManageSkills skills={skills}/>} />
+            <Route path='/dashboard/skills/:id' element={<DetailSkill skills={skills}/>} />
           </Route>
         </Routes>
       </BrowserRouter>
